@@ -6,7 +6,7 @@
   <title>서울대공원 - 통합검색 결과</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* 검색 페이지 전용 간단 스타일 (나중에 style.css로 옮겨도 됨) */
+    /* 검색 페이지 전용 간단 스타일 */
     .search-header {
       background-color: #f8f9fa;
       padding: 40px 0;
@@ -33,6 +33,10 @@
       color: #666;
       border-bottom: 1px solid #eee;
     }
+    /* 섹션 간 간격 추가 */
+    .result-group {
+        margin-bottom: 80px;
+    }
   </style>
 </head>
 
@@ -42,48 +46,162 @@
     <div id="site-header"></div>
 
     <main id="main" class="site-main">
-      
-      <section class="search-header">
+  
+      <section class="total-search-header">
         <div class="container">
-          <h2 class="section-title">통합검색</h2>
-          <p class="search-result-text">
-            "<span class="search-keyword">호랑이</span>"에 대한 검색 결과입니다.
-          </p>
+          <h2 class="ts-title">통합검색</h2>
+          <p class="ts-desc">서울대공원 홈페이지 통합검색 서비스 입니다.</p>
+    
+          <div class="ts-search-box">
+            <form onsubmit="return false;"> 
+                <input type="text" id="total-search-input" placeholder="검색어를 입력하세요">
+                <button type="button" id="total-search-btn" aria-label="검색">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </form>
+          </div>
+        </div>
+    
+        <div class="ts-tabs-wrap">
+            <div class="container">
+              <ul class="ts-tabs">
+                <li class="is-active"><a href="javascript:void(0)">전체</a></li>
+                <li><a href="javascript:void(0)">서울대공원 웹문서</a></li>
+                <li><a href="javascript:void(0)">동물보유현황</a></li>
+                <li><a href="javascript:void(0)">식물보유현황</a></li>
+                <li><a href="javascript:void(0)">게시물</a></li>
+            </ul>
+            </div>
         </div>
       </section>
-
-      <div class="container">
+    
+      <div class="container total-search-result">
         
-        <section class="result-section">
-          <h3 class="result-count">동물 정보 (1건)</h3>
-          
-          <div class="animals-result-grid">
-            <a href="animals-detail.html" class="animal-card">
-                <div class="img-box">
-                    <img src="assets/images/animals/tiger.jpg" alt="시베리아 호랑이">
-                </div>
-                <div class="text-box">
-                    <p class="name">시베리아 호랑이</p>
-                    <p class="meta">식육목 > 고양이과</p>
-                </div>
-            </a>
+        <section class="result-group">
+          <div class="group-head">
+            <h3>동물보유현황</h3>
+            <span class="result-summary"><span class="num result-count">0</span>건의 검색 결과가 있습니다.</span>
+            <a href="#" class="btn-more">더보기 +</a>
           </div>
+    
+          <div class="animals-result-list">
+             </div>
+        </section>
+    
+        <section class="result-group">
+            <div class="group-head">
+            <h3>서울대공원 웹문서</h3>
+            <span class="result-summary"><span class="num">18</span>건의 검색 결과가 있습니다.</span>
+            <a href="#" class="btn-more">더보기 +</a>
+            </div>
+
+            <div class="animals-result-list"> 
+                <div class="search-result-item">
+                    <div class="res-path">
+                        공원가이드 > 이용정보 > 공원 내 이동수단 > 동물원 무료순환버스 ↗
+                    </div>
+                    <a href="#" class="res-title">
+                        코끼리열차 스카이리프트 동물원 무료순환 버스 ...
+                    </a>
+                    <ul class="res-meta">
+                        <li>등록일 &nbsp; 2025.10.31</li>
+                    </ul>
+                </div>
+
+                <div class="search-result-item">
+                    <div class="res-path">
+                        공원가이드 > 이용정보 > 편의시설 > 매점 ↗
+                    </div>
+                    <a href="#" class="res-title">
+                        교통시설 편의시설 매점 카페 음식점 ...
+                    </a>
+                    <ul class="res-meta">
+                        <li>등록일 &nbsp; 2025.03.25</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <section class="result-section">
-          <h3 class="result-count">새소식 (0건)</h3>
-          <div class="no-result">
-            검색 결과가 없습니다.
-          </div>
+        <section class="result-group">
+            <div class="group-head">
+            <h3>식물보유현황</h3>
+            <span class="result-summary"><span class="num">2</span>건의 검색 결과가 있습니다.</span>
+            <a href="#" class="btn-more">더보기 +</a>
+            </div>
+
+            <div class="animals-result-list">
+                
+                <div class="search-result-item">
+                    <div class="res-path">
+                        식물원 · 정원 > 식물원 둘러보기 > 식물 보유현황 ↗
+                    </div>
+                    <a href="#" class="res-title">
+                        복륜산세베리아
+                    </a>
+                    <p class="res-desc">
+                        다육질 식물로 잎은 두껍고 비대하며 광택이 난다. 잎은 직립하며 끝은 뾰족하다. 길이는 45-75cm 정도 자라고 폭은 5-8cm 정도 자란다. 잎은 회녹색 바탕에 암녹색...
+                    </p>
+                    <ul class="res-meta">
+                        <li>등록일 &nbsp; 2011.05.23</li>
+                    </ul>
+                </div>
+
+                <div class="search-result-item">
+                    <div class="res-path">
+                        식물원 · 정원 > 식물원 둘러보기 > 식물 보유현황 ↗
+                    </div>
+                    <a href="#" class="res-title">
+                        윤파지화
+                    </a>
+                    <p class="res-desc">
+                        일본에서 개발된 춘란으로서 호반의 무늬종(<span class="keyword-highlight">호랑이</span> 무늬)으로 아름답다. 엽은 짧은 편이며 보통 15~20cm정도로 짧고 가지가 많다. 화기는 2~4월로 향은 없으며 잎...
+                    </p>
+                    <ul class="res-meta">
+                        <li>등록일 &nbsp; 2011.05.23</li>
+                    </ul>
+                </div>
+
+            </div>
         </section>
 
-      </div>
-    </main>
+        <section class="result-group">
+            <div class="group-head">
+                <h3>게시물</h3>
+                <span class="result-summary"><span class="num">258</span>건의 검색 결과가 있습니다.</span>
+                <a href="#" class="btn-more">더보기 +</a>
+            </div>
+            
+            <div class="animals-result-list">
 
-    <div id="site-footer"></div>
+                <div class="search-result-item">
+                    <div class="res-path">
+                        동물원 > 동물 이야기 > 동물복지이야기 ↗
+                    </div>
+                    <a href="#" class="res-title">
+                        2024 행동풍부화의 날_<span class="keyword-highlight">호랑이</span>
+                    </a>
+                    <ul class="res-meta">
+                        <li>등록일 &nbsp; 2025.10.24</li>
+                    </ul>
+                </div>
 
-  </div>
+                <div class="search-result-item">
+                    <div class="res-path">
+                        공원가이드 > 고객센터 > 분실물센터 ↗
+                    </div>
+                    <a href="#" class="res-title">
+                        흰색 과일 <span class="keyword-highlight">호랑이</span> 손수건
+                    </a>
+                    <ul class="res-meta">
+                        <li>등록일 &nbsp; 2025.03.25</li>
+                    </ul>
+                </div>
 
-  <script src="main.js"></script>
-  </body>
+            </div>
+        </section>
+
+      </div> </main> 
+  
+  <script src="main.js"></script> 
+</body>
 </html>

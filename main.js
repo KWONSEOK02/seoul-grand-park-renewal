@@ -62,95 +62,101 @@ const initGnbDropdown = () => {
 // 2. 검색 기능 로직 (검색어 처리 및 결과 렌더링)
 // =========================================================
 const initSearchLogic = () => {
-    // 2-1. 검색창 동작 (메인 히어로 검색창 + 헤더 검색창 등 공통 처리)
-    const searchForms = document.querySelectorAll('.hero-search, .searchBox form'); // 검색창 감싸는 요소들
+
+    // 2-1. 검색창 동작 (헤더 및 검색 페이지 내부 검색창 모두 대응)
+    const searchInputs = document.querySelectorAll('input[type="text"]');
     
-    searchForms.forEach(form => {
-        const input = form.querySelector('input[type="text"]');
-        const btn = form.querySelector('button');
 
-        const goSearch = () => {
-            const keyword = input.value.trim();
-            if (keyword) {
-                // 검색 페이지로 이동 (검색어 파라미터 포함)
-                window.location.href = `search.html?q=${encodeURIComponent(keyword)}`;
-            } else {
-                alert('검색어를 입력해주세요.');
+    searchInputs.forEach(input => {
+        // 엔터키 이벤트
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const keyword = input.value.trim();
+                if (keyword) {
+                    window.location.href = `search.html?q=${encodeURIComponent(keyword)}`;
+                } else {
+                    alert('검색어를 입력해주세요.');
+                }
             }
-        };
-
-        if (btn) btn.addEventListener('click', goSearch);
-        if (input) {
-            input.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault(); // 폼 제출 방지
-                    goSearch();
+        });
+        
+        // 버튼 클릭 이벤트 (형제 요소 중 button 찾기)
+        const btn = input.parentElement.querySelector('button');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const keyword = input.value.trim();
+                if (keyword) {
+                    window.location.href = `search.html?q=${encodeURIComponent(keyword)}`;
+                } else {
+                    alert('검색어를 입력해주세요.');
                 }
             });
         }
     });
 
     // 2-2. 검색 결과 페이지 로직 (search.html 에서만 동작)
-    const resultSection = document.querySelector('.result-section');
-    if (resultSection) { // 검색 결과 페이지에만 있는 클래스인지 확인
+    const resultContainer = document.querySelector('.animals-result-list');
+    if (resultContainer) {
         
         // URL에서 검색어 가져오기 (?q=호랑이)
         const params = new URLSearchParams(window.location.search);
         const query = params.get('q');
-        const keywordSpan = document.querySelector('.search-keyword');
-        const resultCount = document.querySelector('.result-count');
-        const resultGrid = document.querySelector('.animals-result-grid');
+        
+        // 검색창에 검색어 유지시키기
+        const totalSearchInput = document.getElementById('total-search-input');
+        if(totalSearchInput && query) totalSearchInput.value = query;
 
-        if (query && keywordSpan) {
-            keywordSpan.textContent = query; // "호랑이" 텍스트 변경
-            
+        const resultCount = document.querySelector('.result-count');
+
+        if (query) {
             // 데이터 불러오기 및 필터링
             fetch('assets/data/animals.json')
                 .then(res => res.json())
                 .then(data => {
-                    // 이름에 검색어가 포함된 동물 찾기
                     const results = data.filter(animal => 
                         animal.name.includes(query) || animal.category.includes(query)
                     );
 
                     // 결과 개수 업데이트
-                    if(resultCount) resultCount.textContent = `동물 정보 (${results.length}건)`;
+                    if(resultCount) resultCount.textContent = results.length;
 
-                    // 결과 HTML 렌더링
+                    // ★ HTML 렌더링 (타겟 디자인에 맞춰 구조 변경)
                     if (results.length > 0) {
-                        // ★ 1. 리스트 형태로 변경 (기존 그리드 스타일 무력화)
-                        resultGrid.style.display = 'block'; 
+                        resultContainer.innerHTML = results.map(animal => {
+                            // 검색어 하이라이트 처리 (이름, 설명)
+                            const highlight = (text) => {
+                                if(!text) return "";
+                                const regex = new RegExp(query, 'gi');
+                                return text.replace(regex, `<span class="keyword-highlight">${query}</span>`);
+                            };
 
-                        // ★ 2. 사진과 같은 디자인으로 HTML 생성
-                        resultGrid.innerHTML = results.map(animal => `
-                            <div class="search-item" style="border-bottom: 1px solid #eee; padding: 24px 0;">
-                                <div style="font-size: 13px; color: #2e578c; font-weight: 600; margin-bottom: 8px;">
-                                    ${animal.category} <span style="font-size:12px">🔗</span>
+                            return `
+                            <div class="search-result-item">
+                                <div class="res-path">
+                                    ${animal.category} ↗
                                 </div>
                                 
-                                <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #222;">
-                                    ${animal.name}
-                                </h3>
+                                <a href="#" class="res-title">
+                                    ${highlight(animal.name)}
+                                </a>
                                 
-                                <p style="font-size: 15px; color: #444; line-height: 1.6; margin-bottom: 14px; word-break: keep-all;">
-                                    ${animal.description}
+                                <p class="res-desc">
+                                    ${highlight(animal.description)}
                                 </p>
                                 
-                                <div style="font-size: 13px; color: #888;">
-                                    <span style="color:#bbb; margin-right:6px;">●</span>
-                                    <span style="margin-right: 12px;">등록일</span>
-                                    <span>${animal.date}</span>
-                                </div>
+                                <ul class="res-meta">
+                                    <li>등록일 &nbsp; ${animal.date}</li>
+                                </ul>
                             </div>
-                        `).join('');
+                            `;
+                        }).join('');
                     } else {
                         // 결과 없음
-                        resultGrid.style.display = 'block';
-                        resultGrid.innerHTML = `<div class="no-result" style="text-align:center; padding: 60px 0; color:#666; border-bottom:1px solid #eee;">검색 결과가 없습니다.</div>`;
-                    }})
-                    .catch(err => {
-                        console.error('동물 데이터 로드 실패:', err);
-                    });
+                        resultContainer.innerHTML = `<div style="text-align:center; padding: 80px 0; color:#666;">검색 결과가 없습니다.</div>`;
+                    }
+                })
+                .catch(err => console.error('데이터 로드 실패:', err));
         }
     }
 };
