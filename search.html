@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서울대공원 - 통합검색 결과</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 검색 페이지 전용 간단 스타일 (나중에 style.css로 옮겨도 됨) */
+    .search-header {
+      background-color: #f8f9fa;
+      padding: 40px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .search-keyword {
+      color: #0c6efd;
+      font-weight: 800;
+    }
+    .result-section {
+      margin-bottom: 60px;
+    }
+    .result-count {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #222;
+      padding-bottom: 15px;
+    }
+    .no-result {
+      padding: 60px 0;
+      text-align: center;
+      color: #666;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+
+<body class="page-sub">
+  <div class="wrapper">
+    
+    <div id="site-header"></div>
+
+    <main id="main" class="site-main">
+      
+      <section class="search-header">
+        <div class="container">
+          <h2 class="section-title">통합검색</h2>
+          <p class="search-result-text">
+            "<span class="search-keyword">호랑이</span>"에 대한 검색 결과입니다.
+          </p>
+        </div>
+      </section>
+
+      <div class="container">
+        
+        <section class="result-section">
+          <h3 class="result-count">동물 정보 (1건)</h3>
+          
+          <div class="animals-result-grid">
+            <a href="animals-detail.html" class="animal-card">
+                <div class="img-box">
+                    <img src="assets/images/animals/tiger.jpg" alt="시베리아 호랑이">
+                </div>
+                <div class="text-box">
+                    <p class="name">시베리아 호랑이</p>
+                    <p class="meta">식육목 > 고양이과</p>
+                </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="result-section">
+          <h3 class="result-count">새소식 (0건)</h3>
+          <div class="no-result">
+            검색 결과가 없습니다.
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+  </div>
+
+  <script src="main.js"></script>
+  </body>
+</html>

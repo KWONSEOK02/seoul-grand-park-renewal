@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seoul Grand Park UX Renewal – 메인</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 공통 스타일 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-main">
+  <div class="wrapper">
+
+    <!-- HEADER (components/header.html이 JS로 삽입) -->
+    <div id="site-header"></div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" class="site-main">
+
+      <!-- ================= Hero Section ================= -->
+      <section class="hero-section">
+        
+        <div class="visualSlideArea">
+            <div class="visualImage">
+                <img src="assets/images/main/Seoul Grand Park.png" alt="서울대공원 호수 전경">
+            </div>
+            
+            <div class="visualText">
+                <p class="smallTxt">Together with Nature</p>
+                <p class="bigTxt">자연의 활력이 느껴지는 <span>서울대공원</span></p>
+            </div>
+        </div>
+        
+        <div class="container hero-inner">
+          
+          <div class="infoTopLine">
+            <div class="searchBox">
+               <form onsubmit="return false;"> 
+                  <div class="searchTxt">
+                      <input type="text" placeholder="서울대공원의 무엇이 궁금하신가요?">
+                      <button type="button">검색</button>
+                  </div>
+               </form>
+            </div>
+            
+            <div class="visualControl">
+                <p class="number"><strong>03</strong> / <span>06</span></p>
+                <div class="arrow">
+                  <button type="button" class="btnPrev">‹</button>
+                  <button type="button" class="btnPlayStop">❚❚</button>
+                  <button type="button" class="btnNext">›</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="parkInfo">
+            <div class="visit rowLine">
+                <a href="#">
+                    <strong>11~2월 관람시간</strong>
+                    <span class="time">09:00 ~ 17:00</span>
+                    <span class="holiday">
+                      <b>연중무휴</b>
+                      <i>마감 1시간 전까지 입장 가능</i>
+                    </span>
+                </a>
+            </div>
+            <div class="weather rowLine">
+                <a href="#">
+                    <strong>오늘의 날씨</strong>
+                    <span class="weatherTemp">
+                      <i class="weatherIcon">🌤</i>
+                      <b class="txt temp">-</b>
+                      <i class="txt unit">℃</i>
+                    </span>
+                    <span class="weatherTxt">
+                      <span class="dustLine"><i>미세먼지</i> <b class="dust">-</b></span>
+                      <span class="udustLine"><i>초미세먼지</i> <b class="udust">-</b></span>
+                    </span>
+                </a>
+            </div>
+            <div class="newsletter">
+                <a href="#">
+                    <span class="txt">세대공감, 추억과 함께한 40년</span>
+                    <strong>뉴스레터 89호</strong>
+                    <span class="go">보러가기 →</span>
+                </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= Quick Links Section ================= -->
+      <section class="quicklinks-section">
+        <div class="container quicklinks-inner">
+          <!-- 좌측: 팝업 존 -->
+          <div class="popup-zone">
+            <div class="popup-zone-header">
+              <h2>POPUP ZONE</h2>
+              <div class="popup-zone-page">
+                <span class="strong">01</span>
+                <span class="dim">/ 03</span>
+              </div>
+            </div>
+            <div class="popup-zone-body">
+              <div class="popup-image">
+                <img src="assets/images/main/popup_lift.png" alt="스카이리프트 안전점검 안내" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 우측: 아이콘 링크 8개 -->
+          <div class="quicklinks-grid">
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">🎟</div>
+              <p class="quicklink-text">입장권<br />구매</p>
+            </a>
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">🚌</div>
+              <p class="quicklink-text">공원 내<br />이동수단</p>
+            </a>
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">🅿</div>
+              <p class="quicklink-text">주차장<br />이용 안내</p>
+            </a>
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">🐾</div>
+              <p class="quicklink-text">동물<br />보유현황</p>
+            </a>
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">🌹</div>
+              <p class="quicklink-text">테마가든</p>
+            </a>
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">🌲</div>
+              <p class="quicklink-text">치유의 숲</p>
+            </a>
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">👓</div>
+              <p class="quicklink-text">대공원 VR</p>
+            </a>
+            <a href="#" class="quicklink-item">
+              <div class="quicklink-icon">📂</div>
+              <p class="quicklink-text">아카이브</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= Tour Course Section ================= -->
+      <section class="tour-section">
+
+        <div class="tour-layout">
+          
+          <div class="tour-sidebar">
+            <div class="tour-header">
+              <h2 class="tour-title-main">
+                <span class="icon-pin">📍</span> 추천 관람 코스
+              </h2>
+              <h3 class="tour-title-sub">
+                <span class="icon-cam">▶</span> 실시간 서울대공원
+              </h3>
+            </div>
+            <ul class="tour-course-list">
+              <li class="tour-course-item is-active" data-course="1">01. 동물원 인기관람</li>
+              <li class="tour-course-item" data-course="2">02. 식물원 집중탐구</li>
+              <li class="tour-course-item" data-course="3">03. 연인과 함께 오붓한 영화촬영지</li>
+              <li class="tour-course-item" data-course="4">04. 호수길 산책 &amp; 미술관 관람</li>
+              <li class="tour-course-item" data-course="5">05. 꽃·동물 한번에 다! 대공원 한바퀴</li>
+              <li class="tour-course-item" data-course="6">06. 아이가 있다면 동물과 함께</li>
+            </ul>
+          </div>
+          <div class="tour-map-area">
+            <div class="map-bg">
+                <img src="assets/images/main/course_01.jpg" alt="동물원 인기관람 지도" class="map-image">
+            </div>
+            <div class="tour-info-card" id="tour-info-card">
+              <div class="card-header-row">
+                  <h4 class="info-title">01. 동물원 인기관람</h4>
+                  <span class="info-time">
+                      <i class="icon-time">⏱</i> <span>2시간 소요</span>
+                  </span>
+              </div>
+              <p class="info-desc">
+                동물원에서 가장 인기있는 동물사들로 관람해보세요~!<br>
+                서울대공원 필수코스~! 관람객분들의 사랑을 가장 많이 받고 있는 동물사 코스로 구성~!
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================= News & Facilities Section ================= -->
+      <section class="news-facilities-section">
+
+        <div class="container">
+
+
+
+          <div class="facilities-block">
+
+            <div class="facilities-header">
+
+              <p class="news-kicker">ENJOY THE GRAND PARK</p>
+
+              <h2 class="news-title">주변 시설 알아보기</h2>
+
+            </div>
+
+            
+
+            <div class="facilities-circle-list">
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_zoo.jpg" alt="서울동물원">
+
+                </div>
+
+                <span class="fac-name">서울동물원</span>
+
+              </a>
+
+              
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_camping.jpg" alt="캠핑장">
+
+                </div>
+
+                <span class="fac-name">캠핑장</span>
+
+              </a>
+
+              
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_garden.jpg" alt="테마가든">
+
+                </div>
+
+                <span class="fac-name">테마가든</span>
+
+              </a>
+
+              
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_land.jpg" alt="서울랜드">
+
+                </div>
+
+                <span class="fac-name">서울랜드</span>
+
+              </a>
+
+              
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_planet.jpg" alt="그라운드플래닛">
+
+                </div>
+
+                <span class="fac-name">그라운드플래닛</span>
+
+              </a>
+
+              
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_wonder.jpg" alt="원더파크">
+
+                </div>
+
+                <span class="fac-name">원더파크</span>
+
+              </a>
+
+              
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_art.jpg" alt="국립현대미술관">
+
+                </div>
+
+                <span class="fac-name">국립현대<br>미술관</span>
+
+              </a>
+
+              
+
+              <a href="#" class="fac-circle-item">
+
+                <div class="fac-img">
+
+                  <img src="assets/images/main/fac_science.jpg" alt="국립과천과학관">
+
+                </div>
+
+                <span class="fac-name">국립과천<br>과학관</span>
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="news-block">
+
+            <div class="news-header">
+
+              <div class="header-left">
+
+                <p class="news-kicker">NEW INFO</p>
+
+                <h2 class="news-title">대공원 새소식</h2>
+
+              </div>
+
+              <div class="news-tabs">
+
+                <a href="#" class="news-tab is-active">전체</a>
+
+                <a href="#" class="news-tab">새소식</a>
+
+                <a href="#" class="news-tab">채용·입찰</a>
+
+                <a href="#" class="news-tab">공원안전공지</a>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="news-list">
+
+              <article class="news-item">
+
+                <a href="#">
+
+                  <span class="news-item-type">공원 안전공지</span>
+
+                  <h3 class="news-item-title">2025년 서울대공원 소방훈련 안내(25.11.14.)</h3>
+
+                </a>
+
+              </article>
+
+              <article class="news-item">
+
+                <a href="#">
+
+                  <span class="news-item-type">새소식</span>
+
+                  <h3 class="news-item-title">[당첨자 발표] 어린이 그림 솜씨 자랑</h3>
+
+                </a>
+
+              </article>
+
+              <article class="news-item">
+
+                <a href="#">
+
+                  <span class="news-item-type">채용·입찰</span>
+
+                  <h3 class="news-item-title">[사전규격 공개] 2026년 CCTV 통합관제센터 유지관리 용역</h3>
+
+                </a>
+
+              </article>
+
+              <article class="news-item">
+
+                <a href="#">
+
+                  <span class="news-item-type">새소식</span>
+
+                  <h3 class="news-item-title">[당첨자 발표] 공원 명소 톺아보기 : 10월 '공원친구 만나기'</h3>
+
+                </a>
+
+              </article>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </section>
+    </main>
+
+    <!-- FOOTER (components/footer.html이 JS로 삽입) -->
+    <div id="site-footer"></div>
+
+  </div>
+
+  <!-- 공통 스크립트 -->
+  <script src="main.js"></script>
+  <script src="guide-subnav.js" defer></script>
+</body>
+</html>
+

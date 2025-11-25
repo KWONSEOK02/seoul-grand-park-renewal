@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>서울대공원 - 편의시설</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-sub" data-section="guide" data-sub="facility">
+  <div class="wrapper">
+
+    <div id="site-header"></div>
+
+    <main id="main" class="site-main">
+      
+      <section class="section">
+        <div class="container">
+          <div class="visual-top-nav">
+            <div class="sub-nav-path">
+              <ul>
+                <li class="home">
+                  <a href="index.html" title="메인으로">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#" class="nav-link">
+                    <span>공원가이드</span>
+                    <svg class="arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </a>
+                </li>
+          
+                <li>
+                  <a href="#" class="nav-link">
+                    <span>이용정보</span>
+                    <svg class="arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </a>
+                </li>
+          
+                <li class="current">
+                  <a href="#" class="nav-link">
+                    <span>편의시설</span>
+                    <svg class="arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          
+            <div class="sub-nav-utils">
+              <button type="button" class="btn-util btn-share" title="공유하기">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              </button>
+              <button type="button" class="btn-util btn-print" title="인쇄하기" onclick="window.print()">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              </button>
+            </div>
+          </div>
+          <h2 class="section-title">편의시설</h2>
+          <p class="section-desc">
+            공원 내 음식점 및 편의시설을 소개합니다.
+          </p>
+
+          <div class="facility-tab-nav">
+            <button class="facility-tab-item" onclick="openTab('store')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </div>
+              <span class="tab-label">매점</span>
+            </button>
+
+            <button class="facility-tab-item" onclick="openTab('cafe')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"></path></svg>
+              </div>
+              <span class="tab-label">카페</span>
+            </button>
+
+            <button class="facility-tab-item" onclick="openTab('restaurant')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2v0a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"></path></svg>
+              </div>
+              <span class="tab-label">음식점</span>
+            </button>
+
+            <button class="facility-tab-item is-active" onclick="openTab('help')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+              </div>
+              <span class="tab-label">고객도움터</span>
+            </button>
+
+            <button class="facility-tab-item" onclick="openTab('locker')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0110 0v4M12 15v2"></path></svg>
+              </div>
+              <span class="tab-label">물품보관함</span>
+            </button>
+
+            <button class="facility-tab-item" onclick="openTab('toilet')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"></circle><path d="M5.5 21h13a2 2 0 002-2v-3M3.5 16v3a2 2 0 002 2H12"></path><path d="M19 16v-4a2 2 0 00-2-2H7a2 2 0 00-2 2v4"></path></svg>
+              </div>
+              <span class="tab-label">화장실</span>
+            </button>
+
+            <button class="facility-tab-item" onclick="openTab('baby')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11h6m-5 4h4m-6 7h8a2 2 0 002-2v-6a2 2 0 00-2-2h-2V7a4 4 0 00-8 0v5H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+              </div>
+              <span class="tab-label">아기 쉼터</span>
+            </button>
+
+            <button class="facility-tab-item" onclick="openTab('stroller')">
+              <div class="tab-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="19" r="2"></circle><circle cx="17" cy="19" r="2"></circle><path d="M17 17H8a2 2 0 01-2-1.7L4.5 6h14l.9 5.6c.2 1.4-1 2.4-2.4 2.4H8M3 3h2l.5 3"></path></svg>
+              </div>
+              <span class="tab-label">유모차 대여</span>
+            </button>
+          </div>
+
+          <div class="facility-tab-content">
+            
+            <div id="help" class="tab-pane is-active">
+              <div class="facility-detail-card">
+                <div class="card-top-map">
+                    <img src="assets/images/facilities/map_help.jpg" alt="고객도움터 위치 지도">
+                </div>
+
+                <div class="facility-body">
+                    <div class="body-photo">
+                        <img src="assets/images/facilities/help_photo.jpg" alt="고객도움터 입구">
+                    </div>
+                    <div class="detail-info">
+                      <h3 class="detail-title">고객도움터</h3>
+                      <ul class="detail-list">
+                        <li>
+                          <span class="label">주요사항</span>
+                          <span class="desc">고객안내소, 미아보호소, 방송실, 의무실이 있으며, 분실물 접수 보관이 가능합니다.</span>
+                        </li>
+                        <li>
+                          <span class="label">문의전화</span>
+                          <span class="desc">02-500-7335, 7337, 7338<br>의무실 02-500-7829</span> 
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+  
+            <div id="store" class="tab-pane">
+              <div class="facility-detail-card">
+                
+                <div class="card-top-map">
+                    <div class="map-container">
+                        <img src="assets/images/facilities/map_store.jpg" alt="매점 위치 지도">
+
+                        <div class="map-pin" style="background-color: #e91e63; top: 20%; left: 15%;" title="위니비니">W</div>
+                        <div class="map-pin bg-cu" style="top: 30%; left: 45%;" title="광장편의점(CU)">C</div>
+                        <div class="map-pin bg-gs" style="top: 35%; left: 55%;" title="스카이리프트 편의점">G</div>
+                        <div class="map-pin bg-ministop" style="top: 40%; left: 65%;" title="기린 편의점">M</div>
+                        <div class="map-pin bg-seven" style="top: 15%; left: 80%;" title="해양관 편의점">7</div>
+                        <div class="map-pin bg-seven" style="top: 60%; left: 70%;" title="코뿔소 편의점">7</div>
+                        <div class="map-pin bg-cu" style="top: 50%; left: 85%;" title="호랑이 편의점">C</div>
+                        <div class="map-pin bg-cu" style="top: 25%; left: 35%;" title="로즈스토리">C</div>
+                        <div class="map-pin bg-emart" style="top: 80%; left: 50%;" title="원더파크 편의점">E</div>
+                    </div>
+                </div>
+
+                <div class="facility-list-wrap">
+                    
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_01.jpg" alt="위니비니">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">위니비니</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">젤리, 사탕 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-587-5045, 010-8563-8126</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_02.jpg" alt="광장편의점 CU">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">광장편의점(CU)</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-503-3092</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_03.jpg" alt="스카이리프트 편의점">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">스카이리프트 편의점(GS25,스낵바)</h4>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_04.jpg" alt="기린 편의점">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">기린 편의점(MINISTOP,스낵바)</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">문의전화</span> <span class="i-value">010-8997-4219</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_05.jpg" alt="해양관 편의점">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">해양관 편의점(7-ELEVEN)</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-6013-2907</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_06.jpg" alt="코뿔소 편의점">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">코뿔소 편의점(7-ELEVEN)</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-6013-2906</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_07.jpg" alt="호랑이 편의점">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">호랑이 편의점(CU)</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-502-1593</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_08.jpg" alt="로즈스토리">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">로즈스토리(CU)</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">문의전화</span> <span class="i-value">010-5298-2906</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/store_09.jpg" alt="원더파크 편의점">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">원더파크 편의점(이마트24)</h4>
+                        </div>
+                    </div>
+
+                </div> </div>
+            </div>
+
+            <div id="cafe" class="tab-pane">
+              <div class="facility-detail-card">
+                
+                <div class="card-top-map">
+                    <div class="map-container">
+                        <img src="assets/images/facilities/map_cafe.jpg" alt="카페 위치 지도">
+                        
+                        <div class="map-pin" style="background-color: #795548; top: 20%; left: 20%;" title="원더카페">W</div>
+                        <div class="map-pin" style="background-color: #795548; top: 30%; left: 30%;" title="기린카페">K</div>
+                        <div class="map-pin" style="background-color: #795548; top: 40%; left: 40%;" title="라이언카페">L</div>
+                        <div class="map-pin" style="background-color: #795548; top: 50%; left: 50%;" title="해양관카페">M</div>
+                        <div class="map-pin" style="background-color: #795548; top: 60%; left: 60%;" title="코뿔소카페">R</div>
+                        <div class="map-pin" style="background-color: #795548; top: 20%; left: 70%;" title="빵명장">B</div>
+                        <div class="map-pin" style="background-color: #5f381a; top: 30%; left: 80%;" title="카페베네">C</div> <div class="map-pin" style="background-color: #795548; top: 40%; left: 85%;" title="작은커피집">S</div>
+                        <div class="map-pin" style="background-color: #795548; top: 70%; left: 30%;" title="고고스커피">G</div>
+                    </div>
+                </div>
+
+                <div class="facility-list-wrap">
+                    
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_01.jpg" alt="원더카페">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">원더카페</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료, 빵, 디저트 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">010-5360-8104</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_02.jpg" alt="기린카페">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">기린카페</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">010-8997-4219</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_03.jpg" alt="라이언카페">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">라이언카페</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-507-4598</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_04.jpg" alt="해양관카페">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">해양관카페</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-6013-2907</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_05.jpg" alt="코뿔소카페">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">코뿔소카페</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-6013-2906</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_06.jpg" alt="빵명장">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">빵명장</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료, 빵, 디저트 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">070-8771-7712</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_07.jpg" alt="카페베네">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">카페베네</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 디저트 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-509-6450</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_08.jpg" alt="작은커피집">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">작은커피집</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-503-3092</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/cafe_09.jpg" alt="고고스커피">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">고고스커피</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">커피, 디저트 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-567-3555</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div> </div>
+            </div>
+
+            <div id="restaurant" class="tab-pane">
+              <div class="facility-detail-card">
+                
+                <div class="card-top-map">
+                    <div class="map-container">
+                        <img src="assets/images/facilities/map_restaurant.jpg" alt="음식점 위치 지도">
+                        
+                        <div class="map-pin" style="background-color: #ff5722; top: 25%; left: 25%;" title="기린 푸드코트">K</div>
+                        <div class="map-pin" style="background-color: #ff5722; top: 35%; left: 35%;" title="큰맘할매순대국">B</div>
+                        <div class="map-pin" style="background-color: #ff5722; top: 55%; left: 60%;" title="코뿔소 푸드하우스">R</div>
+                        <div class="map-pin" style="background-color: #ff5722; top: 45%; left: 75%;" title="호랑이 푸드코트">T</div>
+                    </div>
+                </div>
+
+                <div class="facility-list-wrap">
+                    
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/restaurant_01.jpg" alt="기린 푸드코트">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">기린 푸드코트</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">육개장, 볶음밥, 돈가스, 짜장밥, 짜장면, 우동, 잔치국수, 셀프라면 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">010-7235-6687</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/restaurant_02.jpg" alt="큰맘할매순대국">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">큰맘할매순대국, bhc (분수대 푸드플라자)</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">순대국, 우거지소고기국밥, 왕갈비탕, 산채비빔밥, 돈가스, 추어탕, 삼계탕, 순대, 편육, 해물파전, bhc 치킨 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-503-3092</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/restaurant_03.jpg" alt="코뿔소 푸드하우스">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">코뿔소 푸드하우스</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">돈가스, 유부우동, 짜장면, 열무국수, 순살바삭클, 순살뿌링클, bhc 치킨</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-6013-2906</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="facility-item">
+                        <div class="item-thumb">
+                            <img src="assets/images/facilities/restaurant_04.jpg" alt="호랑이 푸드코트">
+                        </div>
+                        <div class="item-info">
+                            <h4 class="item-title">호랑이 푸드코트</h4>
+                            <ul class="item-desc-list">
+                                <li><span class="i-label">판매품목</span> <span class="i-value">묵은지찌개, 뚝배기불고기, 육개장, 해물파전, 왕돈가스, 꼬치우동, 잔치국수 등</span></li>
+                                <li><span class="i-label">문의전화</span> <span class="i-value">02-502-1593</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div> </div>
+            </div>
+
+            <div id="locker" class="tab-pane">
+              <div class="facility-detail-card">
+                <div class="card-top-map">
+                    <img src="assets/images/facilities/map_locker.jpg" alt="물품보관함 위치 지도">
+                </div>
+                <div class="facility-body">
+                    <div class="body-photo">
+                        <img src="assets/images/facilities/locker_photo.jpg" alt="물품보관함 사진">
+                    </div>
+                    <div class="detail-info">
+                      <h3 class="detail-title">물품보관함</h3>
+                      <ul class="detail-list">
+                        <li><span class="label">이용요금</span><span class="desc">무료</span></li>
+                        <li><span class="label">이용시간</span><span class="desc">동물원 및 테마가든 운영시간으로 당일에 한함</span></li>
+                        <li><span class="label">문의전화</span><span class="desc">02-500-7338</span></li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="toilet" class="tab-pane">
+              <div class="facility-detail-card">
+                <div class="card-top-map">
+                    <img src="assets/images/facilities/map_toilet.jpg" alt="화장실 위치 지도">
+                </div>
+                <div class="facility-body">
+                    <div class="body-photo">
+                        <img src="assets/images/facilities/toilet_photo.jpg" alt="화장실 사진">
+                    </div>
+                    <div class="detail-info">
+                      <h3 class="detail-title">화장실</h3>
+                      <ul class="detail-list">
+                        <li><span class="label">위치</span><span class="desc">공원 전역 주요 관람로 (지도 상 화장실 아이콘 참조)</span></li>
+                        <li><span class="label">편의</span><span class="desc">장애인 화장실, 기저귀 교환대 구비</span></li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="baby" class="tab-pane">
+              <div class="facility-detail-card">
+                <div class="card-top-map">
+                    <img src="assets/images/facilities/map_baby.jpg" alt="아기 쉼터 위치 지도">
+                </div>
+                <div class="facility-body">
+                    <div class="body-photo">
+                        <img src="assets/images/facilities/baby_photo.jpg" alt="아기 쉼터 사진">
+                    </div>
+                    <div class="detail-info">
+                      <h3 class="detail-title">아기 쉼터 (수유실)</h3>
+                      <ul class="detail-list">
+                        <li><span class="label">위치</span><span class="desc">공원 전역 주요 관람로 (지도 상 화장실 아이콘 참조)</span></li>
+                        <li><span class="label">주요사항</span><span class="desc">기저귀 교환대, 아리수음수대, 전자렌지 등</span></li>
+                        <li><span class="label">문의전화</span><span class="desc">02-500-7335</span></li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="stroller" class="tab-pane">
+              <div class="facility-detail-card">
+                <div class="card-top-map">
+                    <img src="assets/images/facilities/map_stroller.jpg" alt="유모차 대여소 위치 지도">
+                </div>
+                <div class="facility-body">
+                    <div class="body-photo">
+                        <img src="assets/images/facilities/stroller_photo.jpg" alt="유모차 대여소 사진">
+                    </div>
+                    <div class="detail-info">
+                      <h3 class="detail-title">유모차 · 휠체어 대여소</h3>
+                      <ul class="detail-list">
+                        <li><span class="label">유모차 대여료</span><span class="desc">일반 4,000원(~15kg) / 디럭스 7,000원(16~20kg)</span></li>
+                        <li><span class="label">휠체어 대여료</span><span class="desc">5,000원(수동) / 10,000원(전동)</span></li>
+                        <li><span class="label">전동왜건</span><span class="desc"> 대여요금 30,000원</span></li>
+                        <li><span class="label">문의전화</span><span class="desc">02-500-7193</span></li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+          </div> </div>
+      </section>
+
+    </main>
+
+    <div id="site-footer"></div>
+
+  </div>
+
+  <script src="main.js"></script>
+  <script src="guide-subnav.js"></script>
+</body>
+</html>
