@@ -674,6 +674,81 @@ main {
     font-size: 20px;
   }
 
+  /* [4-4] 공통 브레드크럼 (Breadcrumb Pill) - 공통화 */
+.breadcrumb-pill {
+  background-color: #fff;
+  border-radius: 50px; /* 둥근 알약 모양 */
+  padding: 0 24px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  /* 필요시 border 추가: border: 1px solid #e5e7eb; */
+}
+
+.breadcrumb-pill .home-btn {
+  display: flex;
+  align-items: center;
+  color: #333;
+  transition: color 0.2s;
+}
+.breadcrumb-pill .home-btn:hover {
+  color: #0c6efd;
+}
+
+.breadcrumb-pill .crumb-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb-pill .crumb-list li {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+/* 화살표 구분선 (>) CSS로 구현 */
+.breadcrumb-pill .crumb-list li:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  transform: rotate(45deg);
+  margin-left: 10px;
+  margin-top: -1px;
+}
+
+/* 현재 페이지 텍스트 강조 */
+.breadcrumb-pill .crumb-list li.current {
+  font-weight: 800;
+  color: #222;
+}
+
+/* 흰색 아이콘 유틸 버튼 공통화 (Animals, Facilities 등에서 사용) */
+.btn-circle-white {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+}
+.btn-circle-white:hover {
+  transform: scale(1.05);
+  background-color: #f9f9f9;
+}
+
 /* =========================================
 5. Common States & Helpers (상태/보조 클래스)
 .is-active, .disabled 등 상태 클래스
@@ -1286,14 +1361,465 @@ main {
  
 /* =========================================
 7. Page: Animals (animals.html)
-
 동물 리스트, 카드, 상세 정보
-
 동물 필터/탭, 검색 등
 ========================================= */
 
+/* [7-1] 서브 비주얼 (Sub Hero) */
+.sub-visual-banner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.sub-visual-banner .bg-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.sub-visual-banner .bg-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* 상단 탑 바 (브레드크럼 + 유틸버튼 배치용) */
+.visual-top-bar {
+  position: absolute;
+  top: 30px; /* 상단 여백 */
+  left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* 2. 우측 유틸 버튼 (.visual-utils) */
+.visual-utils {
+  display: flex;
+  gap: 10px;
+}
+
+/* 중앙 텍스트 */
+.visual-text-wrap {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  margin-top: 20px; /* 약간의 보정 */
+}
+
+.sub-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.sub-desc {
+  font-size: 18px;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* [7-2] 브레드크럼 & 유틸 바 */
+.sub-breadcrumb-bar {
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #fff;
+}
+
+.bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb-list li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.breadcrumb-list li.home-icon img {
+  width: 16px; height: 16px; opacity: 0.6;
+}
+
+/* 구분선 (>) */
+.breadcrumb-list li:not(:last-child)::after {
+  content: "›";
+  margin-left: 10px;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.breadcrumb-list li.current {
+  font-weight: 700;
+  color: #222;
+}
+
+/* ★수정됨: 유틸 버튼 그룹 레이아웃 */
+.sub-nav-utils {
+  display: flex;
+  gap: 10px; /* 버튼 사이 간격 */
+  align-items: center;
+}
+
+/* 참고: .btn-util 스타일은 
+ [4. Common Components] 섹션에 정의되어 있어 자동으로 적용됨 
+ (흰색 배경, 회색 테두리, 원형) */
+
+.btn-util:hover {
+  background-color: #f9f9f9;
+  border-color: #333;
+  color: #000;
+}
 
 
+/* [7-3] 콘텐츠 레이아웃 & 페이지 헤더 */
+.section-animal-content {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+.animal-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  border-bottom: 2px solid #222; /* 제목 아래 굵은 선 */
+  padding-bottom: 20px;
+}
+
+.pg-tit {
+  font-size: 32px;
+  font-weight: 800;
+  color: #222;
+  line-height: 1.3;
+}
+
+.pg-desc {
+  font-size: 14px;
+  color: #666;
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* [7-4] 통계 현황 박스 (Stats Box) */
+.animal-stats-box {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  padding: 40px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.stats-label {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* 아이템 간격 */
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+/* 아이콘 원형 영역 */
+.stat-item .icon-area {
+  width: 60px; height: 60px;
+  margin-bottom: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #f4f6f9; 
+  border-radius: 50%;
+}
+
+/* 텍스트 스타일 */
+.stat-item .lbl {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.stat-item .count {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.stat-item .count.text-green { color: #00897b; }
+.stat-item .count.text-dark { color: #333; }
+
+/* 중간 구분선 */
+.stats-divider {
+  border: 0;
+  height: 1px;
+  background-color: #eee;
+  margin: 40px 0;
+}
+
+
+/* [7-5] 검색 툴바 (Search Toolbar) */
+.animal-search-toolbar {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.select-group {
+  display: flex;
+  gap: 10px;
+}
+
+.ani-select {
+  height: 50px;
+  padding: 0 30px 0 15px;
+  border: 1px solid #ddd;
+  color: #666;
+  font-size: 15px;
+  background-color: #fff;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.search-input-group {
+  display: flex;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  height: 50px;
+  width: 360px;
+}
+
+.search-input-group input {
+  flex: 1;
+  border: none;
+  padding: 0 15px;
+  font-size: 15px;
+  outline: none;
+  color: #333;
+}
+
+.btn-ani-search {
+  width: 50px;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+/* [7-6] 동물 카드 그리드 (Grid System) */
+.animal-card-grid {
+  display: grid;
+  /* 3열 그리드 (반응형 대응) */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.animal-card {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0; /* 각지게 */
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.animal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 카드 이미지 영역 */
+.card-photo {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.card-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.animal-card:hover .card-photo img {
+  transform: scale(1.1);
+}
+
+/* 숫자 뱃지 */
+.num-badge {
+  position: absolute;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  z-index: 10;
+}
+/* 뱃지 색상 */
+.num-badge.blue { background-color: #2b78c9; }
+.num-badge.red { background-color: #d13048; }
+.num-badge.green { background-color: #105d50; }
+.num-badge.teal { background-color: #00897b; }
+
+
+/* 카드 정보 영역 */
+.card-info {
+  padding: 24px;
+  text-align: left;
+}
+
+.ani-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+.ani-meta {
+  margin-bottom: 20px;
+}
+
+.ani-meta li {
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.ani-meta li .label {
+  min-width: 80px;
+  color: #888;
+  position: relative;
+}
+.ani-meta li .label::after {
+  content: "";
+  display: inline-block;
+  width: 2px; height: 2px;
+  background: #bbb;
+  position: absolute;
+  right: 15px; top: 8px;
+}
+
+.ani-meta li .val {
+  font-weight: 500;
+}
+
+/* 자세히 보기 버튼 */
+.btn-detail {
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.animal-card:hover .btn-detail {
+  color: #2b78c9;
+}
+
+/* [7-7] 페이지네이션 (Pagination) */
+.pagination-wrap {
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center;
+  margin-top: 60px;
+}
+
+/* 숫자 버튼 스타일 */
+.pg-nums a {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333; /* 활성 상태 색상 적용 */
+  background-color: #333; /* 활성 상태 배경색 적용 */
+  color: #fff;            /* 활성 상태 글자색 적용 */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50%;     /* 원형 */
+  cursor: default;        /* 클릭 안 되는 느낌 (하나뿐이므로) */
+}
+
+.pg-nums a.on,
+.pg-nums a:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+  font-weight: 700;
+}
+
+
+/* [7-8] 반응형 (Mobile) */
+@media (max-width: 768px) {
+  /* 비주얼 높이 축소 */
+  .sub-visual-banner { height: 250px; }
+  .sub-title { font-size: 32px; }
+  
+  /* 페이지 헤더 세로 정렬 */
+  .animal-page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+  .pg-desc { text-align: left; }
+
+  /* 통계 박스 */
+  .stats-row { gap: 30px; }
+  .stat-item { flex: 1 1 40%; } /* 2열 배치 */
+
+  /* 검색바 */
+  .animal-search-toolbar {
+      flex-direction: column;
+  }
+  .select-group { width: 100%; }
+  .ani-select { flex: 1; }
+  .search-input-group { width: 100%; }
+
+  /* 그리드 */
+  .animal-card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* 1열 */
+  }
+}
 
 /* =========================================
 8. Page: Facilities (facilities.html)
@@ -1316,48 +1842,6 @@ main {
     margin-bottom: 40px;
     padding: 20px 0;
     border-bottom: 1px solid #e5e7eb;
-  }
-  
-  .sub-nav-path ul {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* 항목 사이 간격 */
-  }
-  
-  .sub-nav-path li {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  .sub-nav-path .nav-link,
-  .sub-nav-path a {
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    color: #666;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  /* 화살표 아이콘 */
-  .sub-nav-path .arrow-down {
-    width: 16px; height: 16px; margin-left: 4px; stroke: #999;
-  }
-  
-  /* 구분선 (>) */
-  .sub-nav-path li:not(:last-child)::after {
-    content: "›";
-    font-size: 18px;
-    color: #ccc;
-    margin-left: 10px;
-    margin-top: -2px;
-  }
-  
-  /* 현재 페이지 강조 */
-  .sub-nav-path li.current .nav-link {
-    color: #222;
-    font-weight: 800;
   }
   
   /* 우측 상단 유틸리티 버튼 */
