@@ -9,8 +9,7 @@ This project is a web application that includes a main page with search function
 │
 ├── index.html                 # 메인 페이지 (히어로 섹션, 팝업 등 수정됨)
 ├── animals.html               # 서브페이지 1 (동물 정보)
-├── courses.html               # 서브페이지 2 (추천 코스)
-├── facilities.html            # 서브페이지 3 (편의시설 - 탭/사진 적용됨)
+├── facilities.html            # 서브페이지 2 (편의시설 - 탭/사진 적용됨)
 ├── search.html                # ★ 검색 결과 페이지 (새로 추가됨)
 │
 ├── style.css                  # 공통 스타일 (헤더, GNB, 편의시설 탭 등 모든 스타일 포함)
