@@ -38,7 +38,12 @@
                <form onsubmit="return false;"> 
                   <div class="searchTxt">
                       <input type="text" placeholder="서울대공원의 무엇이 궁금하신가요?">
-                      <button type="button">검색</button>
+                      <button type="button">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#4a3b3b" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
                   </div>
                </form>
             </div>
@@ -57,7 +62,7 @@
             <div class="visit rowLine">
                 <a href="#">
                     <strong>11~2월 관람시간</strong>
-                    <span class="time">09:00 ~ 17:00</span>
+                    <span class="time"><i class="timeIcon">🕒</i>09:00 ~ 17:00</span>
                     <span class="holiday">
                       <b>연중무휴</b>
                       <i>마감 1시간 전까지 입장 가능</i>
@@ -68,7 +73,7 @@
                 <a href="#">
                     <strong>오늘의 날씨</strong>
                     <span class="weatherTemp">
-                      <i class="weatherIcon">🌤</i>
+                      <i class="weatherIcon">❄️</i>
                       <b class="txt temp">-</b>
                       <i class="txt unit">℃</i>
                     </span>
@@ -112,7 +117,7 @@
           <!-- 우측: 아이콘 링크 8개 -->
           <div class="quicklinks-grid">
             <a href="#" class="quicklink-item">
-              <div class="quicklink-icon">🎟</div>
+              <div class="quicklink-icon">🎫</div>
               <p class="quicklink-text">입장권<br />구매</p>
             </a>
             <a href="#" class="quicklink-item">
@@ -136,7 +141,7 @@
               <p class="quicklink-text">치유의 숲</p>
             </a>
             <a href="#" class="quicklink-item">
-              <div class="quicklink-icon">👓</div>
+              <div class="quicklink-icon">🎞️</div>
               <p class="quicklink-text">대공원 VR</p>
             </a>
             <a href="#" class="quicklink-item">
@@ -155,10 +160,10 @@
           <div class="tour-sidebar">
             <div class="tour-header">
               <h2 class="tour-title-main">
-                <span class="icon-pin">📍</span> 추천 관람 코스
+                <span class="icon-pin">👓</span> 추천 관람 코스
               </h2>
               <h3 class="tour-title-sub">
-                <span class="icon-cam">▶</span> 실시간 서울대공원
+                <span class="icon-cam">📽️</span> 실시간 서울대공원
               </h3>
             </div>
             <ul class="tour-course-list">
@@ -401,15 +406,9 @@
                   <h3 class="news-item-title">[당첨자 발표] 공원 명소 돌아보기 : 10월 '공원친구 만나기'</h3>
 
                 </a>
-
               </article>
-
             </div>
-
           </div>
-
-
-
         </div>
 
       </section>
