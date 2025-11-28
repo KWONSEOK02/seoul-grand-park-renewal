@@ -1822,6 +1822,198 @@ main {
 }
 
 /* =========================================
+   [7-9] 동물 상세 페이지 (tiger-details.html)
+========================================= */
+
+/* 레이아웃 여백 */
+.section-detail-content {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+/* 1. 동물 메인 사진 */
+.detail-big-photo {
+  width: 100%;
+  margin-bottom: 60px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.detail-big-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 2. 설명 영역 (헤더 + 스펙) */
+.detail-info-wrap {
+  margin-bottom: 80px;
+}
+
+/* 상단 타이틀 & 설명글 배치 */
+.detail-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.dt-title-area {
+  flex: 0 0 40%;
+}
+
+.dt-ko-name {
+  font-size: 36px;
+  font-weight: 800;
+  color: #222;
+  margin: 0 0 10px 0;
+}
+
+.dt-en-name, .dt-sc-name {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 4px;
+  font-family: 'Times New Roman', serif; /* 학명 느낌 */
+  font-style: italic;
+}
+
+.cites-tag {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #2e89c5; /* 스카이블루 */
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.dt-desc-area {
+  flex: 1;
+  padding-top: 10px;
+}
+.dt-desc-area p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* 스펙 그리드 (회색 박스) */
+.detail-spec-grid {
+  background-color: #f8f9fa;
+  padding: 40px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4열 배치 */
+  gap: 40px 20px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  font-size: 16px;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.spec-val {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+/* 첫번째 항목(종분류)은 가로로 길게 차지하도록 처리 */
+.spec-item:first-child {
+  grid-column: span 2;
+}
+
+
+/* 3. 지도 영역 */
+.detail-map-wrap {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.dt-sec-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #27384d; /* primary color */
+  margin-bottom: 30px;
+}
+
+.map-img-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.map-img-box img {
+  width: 100%;
+  display: block;
+}
+
+
+/* 4. 목록 버튼 (요청하신 클래스명 기반 스타일) */
+.detail-btn-row {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* 요청하신 버튼 스타일 구현 */
+.button.largefixed.black {
+  display: inline-block;
+  background-color: #222; /* Black */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 15px 0;
+  width: 200px; /* 고정 너비 */
+  text-align: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  letter-spacing: -0.25px;
+}
+
+.button.largefixed.black:hover {
+  background-color: #000;
+}
+
+/* 반응형 (Mobile) */
+@media (max-width: 768px) {
+  .detail-header-row {
+      flex-direction: column;
+      gap: 20px;
+  }
+  .detail-spec-grid {
+      grid-template-columns: 1fr 1fr; /* 모바일 2열 */
+  }
+  .spec-item:first-child {
+      grid-column: span 2;
+  }
+}
+@media (max-width: 480px) {
+  .detail-spec-grid {
+      grid-template-columns: 1fr; /* 더 작으면 1열 */
+  }
+  .spec-item:first-child {
+      grid-column: span 1;
+  }
+}
+
+/* =========================================
 8. Page: Facilities (facilities.html)
 
 서브 비주얼, 상단 경로/서브네비
