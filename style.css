@@ -71,6 +71,9 @@ main {
   padding: 40px 0 80px; /* 상단 40px, 하단 80px 기본 여백 */
 }
 
+.page-sub main {
+  padding-top: 160px; /* 140px ~ 160px 정도로 조절 */
+}
 /* [1-2] 공통 컨테이너 */
 
 /* .container: 중앙 정렬 및 최대 너비 1200px */
@@ -111,17 +114,20 @@ main {
 
 /* [Header Container] 헤더 전체 레이아웃 */
 .header {
-    position: relative; /* 자식 요소인 gnb-dropdown-wrap의 absolute 기준 */
-    background-color: #fff;
-    border-bottom: 1px solid #e2e4ea;
-  }
+  position: fixed;               /* 추가: 상단 고정 */
+  top: 0; left: 0; width: 100%;  /* 추가: 위치 잡기 */
+  z-index: 100;                  /* 추가: 최상단 노출 */
+  background-color:rgba(0, 0, 0, 0.5); /* 수정: 배경 투명 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 수정: 테두리 반투명 흰색 */
+  transition: background-color 0.3s, border-bottom 0.3s; /* 추가: 부드러운 전환 */
+}
   
-  .header-top {
-    font-size: 13px;
-    color: #666;
-    padding: 6px 0;
-    background-color: #f8f9fb;
-  }
+.header-top {
+  background-color: transparent;    /* 수정: 배경 투명 */
+  color: rgba(255, 255, 255, 0.8);  /* 수정: 글씨 흰색 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 추가: 구분선 투명하게 */
+  transition: all 0.3s;             /* 추가: 전환 효과 */
+}
   
   .header-top .container {
     display: flex;
@@ -154,6 +160,7 @@ main {
     width: 140px;
     height: auto;
     display: block;
+    transition: filter 0.3s;          /* 추가: 전환 효과 */
   }
   
   /* [GNB / 1차 메뉴] 메인 네비게이션 */
@@ -179,6 +186,8 @@ main {
     border-bottom: 7px solid transparent; /* 마우스 올리기 전 투명 선 */
     transition: border-color 0.2s;
     white-space: nowrap;
+    color: #fff;  /* 수정: 글씨 흰색 */
+    transition: color 0.2s, border-bottom-color 0.2s; /* 추가 */
   }
   
   /* [States] GNB 활성/호버 상태 */
@@ -355,6 +364,77 @@ main {
     font-weight: 700;
     text-decoration: underline;
   }
+
+  /* [Header Hover Effects] 마우스 올렸을 때 원래 스타일로 복귀 */
+
+/* 1. 헤더 배경 흰색 */
+.header:hover {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e4ea;
+}
+
+/* 2. 상단 바 회색 배경 복귀 */
+.header:hover .header-top {
+  background-color: #f8f9fb;
+  color: #666;
+  border-bottom: 1px solid #e2e4ea;
+}
+
+/* 3. 로고 색상 원상복구 */
+.header:hover .site-logo img {
+  filter: none;
+}
+
+/* 4. 메뉴 글씨 검은색 복귀 */
+.header:hover .main-nav a {
+  color: #222;
+}
+
+/* 5. 메뉴 호버 시 파란색 밑줄 */
+.header:hover .main-nav a:hover,
+.header:hover .main-nav a:focus,
+.header:hover .main-nav a.is-active {
+  color: #222;
+  border-bottom-color: #0c6efd;
+}
+
+/* [Logo] 로고 이미지 교체 설정 */
+
+/* 1. 기본 상태 (헤더가 투명할 때) */
+.site-logo a {
+  position: relative; /* 자식(이미지)들의 위치 기준점 */
+  display: block;     /* 블록 요소로 변경하여 크기 잡기 */
+  width: 140px;       /* 로고 너비 고정 */
+}
+
+.logo-white,
+.logo-common {
+  width: 100%;        /* 부모(a태그) 너비에 맞춤 */
+  height: auto;
+  transition: opacity 0.3s ease; /* 부드러운 투명도 전환 */
+}
+
+.logo-white {
+  display: block;
+  opacity: 1;         /* 불투명 (보임) */
+}
+
+.logo-common {
+  display: block;     /* none 대신 block 유지 (공간 확보 X, 겹치기 위해) */
+  position: absolute; /* 공중에 띄워서 흰색 로고 위에 겹침 */
+  top: 0;
+  left: 0;
+  opacity: 0;         /* 투명 (안 보임) */
+}
+
+/* 2. 호버 상태 (마우스 올렸을 때) */
+.header:hover .logo-white {
+  opacity: 0; /* 투명하게*/
+}
+
+.header:hover .logo-common {
+  opacity: 1; /* 불투명하게 */
+}
   
 /* =========================================
    3. Footer (footer.html 공통)
@@ -767,7 +847,7 @@ main {
   overflow: hidden;    /* 이미지가 튀어나가지 않게 자름 */
   background-color: #ddd; /* 이미지 로딩 전 배경색 */
   box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* 살짝 그림자 */
-  border: 1px solid rgba(255,255,255,0.2); /* (선택) 테두리 살짝 */
+  border: 1px solid rgba(255,255,255,0.2); 
 }
 
 /* 이미지 꽉 채우기 */
@@ -780,11 +860,8 @@ main {
 
 /* =========================================
 6. Page: Main (index.html)
-
 메인 비주얼/히어로, 슬로건
-
 팝업존, 공지/이벤트
-
 날씨/미세먼지, 추천 코스, 추천 시설 카드 등
 ========================================= */
 /* [6-1] 메인 히어로 / 비주얼 섹션 */
@@ -916,6 +993,7 @@ main {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px 14px;
+    padding-top: 52px;
   }
   
   .quicklink-item {
@@ -953,7 +1031,7 @@ main {
   .quicklink-item:hover .quicklink-text {
     color: #00574b;
   }
-  /* [6-3] 관람시간 / 날씨 정보 박스 (★ .parkInfo 내부) */
+  /* [6-3] 관람시간 / 날씨 정보 박스 (.parkInfo 내부) */
   
   /* 박스 컨테이너 */
   .parkInfo {
@@ -978,6 +1056,15 @@ main {
   .parkInfo > div:last-child {
     border-right: none;
   }
+
+  .visit strong,
+  .weather strong {
+    display: block;
+    font-size: 20px;   /* 기존보다 크게 (약 16px -> 20px) */
+    font-weight: 800;  /* 아주 굵게 */
+    color: #222;
+    margin-bottom: 10px;
+  }
   
   /* 1) 관람시간 (.visit) 스타일 */
   .visit .time {
@@ -992,14 +1079,15 @@ main {
   .visit .holiday b {
     color: #0c6efd;
     margin-right: 6px;
+    font-size: 16px;
   }
   
   .visit .holiday i {
     font-style: normal;
-    color: #666;
-    font-size: 14px;
+    color: #444;       /* 색상 진하게 (#666 -> #444) */
+    font-size: 15px;   /* 크기 키움 (14px -> 15px) */
+    font-weight: 700;  /* 굵게 추가 */
   }
-  
   /* 2) 날씨 (.weather) 스타일 */
   .weatherTemp {
     display: flex;
@@ -1029,13 +1117,20 @@ main {
   .weatherTxt span {
     display: inline-block;
     margin-right: 12px;
-    font-size: 14px;
-    color: #666;
+    font-size: 15px;   /* 전체 텍스트 크기 키움 (14px -> 15px) */
+    color: #444;       /* 글자색 진하게 */
   }
   
+  .weatherTxt i {
+    font-style: normal;
+    font-weight: 700;  /* "미세먼지" 글씨 굵게 */
+    margin-right: 4px;
+  }
+
   .weatherTxt b {
     color: #222;
-    margin-left: 4px;
+    font-weight: 700;  /* 수치도 굵게 */
+    margin-left: 2px;
   }
   
   /* 호버 효과 */
@@ -1557,6 +1652,9 @@ main {
   background-size: contain;
   background-color: #f4f6f9; 
   border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px; /* 아이콘 크기 조절 */
 }
 
 /* 텍스트 스타일 */
@@ -1581,6 +1679,33 @@ main {
   height: 1px;
   background-color: #eee;
   margin: 40px 0;
+}
+
+/* 2. 각 아이콘별 이미지 경로 연결 */
+
+/* 동물원 동물 보유 현황 */
+.icon-mammal {
+  background-image: url('assets/images/icons/bear-face.png'); 
+}
+.icon-bird {
+  background-image: url('assets/images/icons/owl.png');      
+}
+.icon-reptile {
+  background-image: url('assets/images/icons/cobra-front-outline.png');  
+}
+.icon-amphibian {
+  background-image: url('assets/images/icons/frog-head-frontal-outline.png'); 
+}
+
+/* 멸종위기관리 동물 보유 현황 */
+.icon-monument {
+  background-image: url('assets/images/icons/charity.png');
+}
+.icon-cites {
+  background-image: url('assets/images/icons/CITES.png'); 
+}
+.icon-danger {
+  background-image: url('assets/images/icons/danger.png');
 }
 
 
@@ -2225,13 +2350,11 @@ main {
   }
   
   /* [8-5] 편의점 브랜드 색상 / 테마 클래스 (핀, 로고 등에 사용) */
-  .bg-cu { background-color: #652f8b; }       /* CU 보라색 */
-  .bg-gs { background-color: #007cba; }       /* GS25 파란색 */
-  .bg-seven { background-color: #008061; }    /* 세븐일레븐 초록색 */
-  .bg-ministop { background-color: #003e7e; } /* 미니스톱 짙은파랑 */
-  .bg-emart { 
-    background-color: #ffb71b;                /* 이마트24 노란색 */
-    color: #333 !important;                   /* 노란 바탕에는 검은 글씨 */
+  /* [facilities.html] 편의점 통일 스타일 (머스타드) */
+  .bg-store {
+    background-color: #e91e63;
+    color: #fff !important;    
+    font-weight: 800;
   }
 
   /*카페 위치 색상*/
@@ -2244,7 +2367,6 @@ main {
     background-color: #ff5722; 
     color: #fff !important; 
   }
-  
 /* =========================================
 9. Page: Search Results (search.html)
 
