@@ -934,7 +934,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 40px; /*이모지 크기 조절*/
     margin-bottom: 10px;
     border: 1px solid transparent;
   }
@@ -1008,7 +1008,7 @@ main {
     margin-bottom: 10px;
   }
   
-  .weatherIcon {
+  .weatherIcon , .timeIcon {
     font-size: 32px;
     font-style: normal;
   }
@@ -1211,6 +1211,12 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
+  }
+
+  .tour-title-main .icon-pin,
+  .tour-title-sub .icon-cam {
+      font-size: 35px; /* 아이콘 크기를 조정 */
+      line-height: 1;
   }
   
   .tour-course-list {
