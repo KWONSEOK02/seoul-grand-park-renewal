@@ -71,6 +71,9 @@ main {
   padding: 40px 0 80px; /* 상단 40px, 하단 80px 기본 여백 */
 }
 
+.page-sub main {
+  padding-top: 160px; /* 140px ~ 160px 정도로 조절 */
+}
 /* [1-2] 공통 컨테이너 */
 
 /* .container: 중앙 정렬 및 최대 너비 1200px */

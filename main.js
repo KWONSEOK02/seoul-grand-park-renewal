@@ -128,7 +128,7 @@ const initSearchLogic = () => {
 
                             return `
                             <div class="search-result-item">
-                                <p class="result-link">${animal.category} ↗</p> <a href="#" class="result-title">${highlight(animal.name)}</a>
+                                <p class="result-link">${animal.category} </p> <a href="#" class="result-title">${highlight(animal.name)}</a>
                                 <p class="result-desc">${highlight(animal.description)}</p>
                                 <ul class="result-meta"><li>등록일 &nbsp; ${animal.date}</li></ul>
                             </div>
