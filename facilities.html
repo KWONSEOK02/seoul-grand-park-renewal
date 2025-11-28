@@ -17,45 +17,40 @@
       <section class="section">
         <div class="container">
           <div class="visual-top-nav">
-            <div class="sub-nav-path">
-              <ul>
-                <li class="home">
-                  <a href="index.html" title="메인으로">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                  </a>
-                </li>
-                
-                <li>
-                  <a href="#" class="nav-link">
-                    <span>공원가이드</span>
-                    <svg class="arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </a>
-                </li>
-          
-                <li>
-                  <a href="#" class="nav-link">
-                    <span>이용정보</span>
-                    <svg class="arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </a>
-                </li>
-          
-                <li class="current">
-                  <a href="#" class="nav-link">
-                    <span>편의시설</span>
-                    <svg class="arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </a>
-                </li>
+      
+            <div class="breadcrumb-pill">
+              <a href="index.html" class="home-btn" title="메인으로">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </a>
+              <ul class="crumb-list">
+                <li><a href="#">공원가이드</a></li>
+                <li><a href="#">이용정보</a></li>
+                <li class="current">편의시설</li>
               </ul>
             </div>
-          
+      
             <div class="sub-nav-utils">
-              <button type="button" class="btn-util btn-share" title="공유하기">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              <button type="button" class="btn-circle-white" title="공유하기">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
               </button>
-              <button type="button" class="btn-util btn-print" title="인쇄하기" onclick="window.print()">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              <button type="button" class="btn-circle-white" title="인쇄하기" onclick="window.print()">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
               </button>
             </div>
+      
           </div>
           <h2 class="section-title">편의시설</h2>
           <p class="section-desc">
@@ -154,17 +149,17 @@
                 
                 <div class="card-top-map">
                     <div class="map-container">
-                        <img src="assets/images/facilities/map_store.jpg" alt="매점 위치 지도">
+                        <img src="assets/images/facilities/map_common.jpg" alt="매점 위치 지도">
 
-                        <div class="map-pin" style="background-color: #e91e63; top: 20%; left: 15%;" title="위니비니">W</div>
-                        <div class="map-pin bg-cu" style="top: 30%; left: 45%;" title="광장편의점(CU)">C</div>
-                        <div class="map-pin bg-gs" style="top: 35%; left: 55%;" title="스카이리프트 편의점">G</div>
-                        <div class="map-pin bg-ministop" style="top: 40%; left: 65%;" title="기린 편의점">M</div>
-                        <div class="map-pin bg-seven" style="top: 15%; left: 80%;" title="해양관 편의점">7</div>
-                        <div class="map-pin bg-seven" style="top: 60%; left: 70%;" title="코뿔소 편의점">7</div>
-                        <div class="map-pin bg-cu" style="top: 50%; left: 85%;" title="호랑이 편의점">C</div>
-                        <div class="map-pin bg-cu" style="top: 25%; left: 35%;" title="로즈스토리">C</div>
-                        <div class="map-pin bg-emart" style="top: 80%; left: 50%;" title="원더파크 편의점">E</div>
+                        <div class="map-pin" style="background-color: #e91e63; top: 69%; left: 2%;" title="위니비니">W</div>
+                        <div class="map-pin bg-cu" style="top: 70%; left: 6%;" title="광장편의점(CU)">C</div>
+                        <div class="map-pin bg-gs" style="top: 86%; left: 9%;" title="스카이리프트 편의점">G</div>
+                        <div class="map-pin bg-ministop" style="top: 66%; left: 53%;" title="기린 편의점">M</div>
+                        <div class="map-pin bg-seven" style="top: 66%; left: 74%;" title="해양관 편의점">7</div>
+                        <div class="map-pin bg-seven" style="top: 69%; left: 65%;" title="코뿔소 편의점">7</div>
+                        <div class="map-pin bg-cu" style="top: 45%; left: 77%;" title="호랑이 편의점">C</div>
+                        <div class="map-pin bg-cu" style="top: 62%; left: 33%;" title="로즈스토리">C</div>
+                        <div class="map-pin bg-emart" style="top: 59%; left: 5%;" title="원더파크 편의점">E</div>
                     </div>
                 </div>
 
@@ -281,16 +276,23 @@
                 
                 <div class="card-top-map">
                     <div class="map-container">
-                        <img src="assets/images/facilities/map_cafe.jpg" alt="카페 위치 지도">
+                        <img src="assets/images/facilities/map_common.jpg" alt="카페 위치 지도">
                         
-                        <div class="map-pin" style="background-color: #795548; top: 20%; left: 20%;" title="원더카페">W</div>
-                        <div class="map-pin" style="background-color: #795548; top: 30%; left: 30%;" title="기린카페">K</div>
-                        <div class="map-pin" style="background-color: #795548; top: 40%; left: 40%;" title="라이언카페">L</div>
-                        <div class="map-pin" style="background-color: #795548; top: 50%; left: 50%;" title="해양관카페">M</div>
-                        <div class="map-pin" style="background-color: #795548; top: 60%; left: 60%;" title="코뿔소카페">R</div>
-                        <div class="map-pin" style="background-color: #795548; top: 20%; left: 70%;" title="빵명장">B</div>
-                        <div class="map-pin" style="background-color: #5f381a; top: 30%; left: 80%;" title="카페베네">C</div> <div class="map-pin" style="background-color: #795548; top: 40%; left: 85%;" title="작은커피집">S</div>
-                        <div class="map-pin" style="background-color: #795548; top: 70%; left: 30%;" title="고고스커피">G</div>
+                        <div class="map-pin bg-cafe-new" style="top: 67%; left: 3%;" title="빵명장">B</div>
+                        <div class="map-pin bg-cafe-new" style="top: 31%; left: 25%;" title="카페베네">C</div>
+                        <div class="map-pin bg-cafe-new" style="top: 72%; left: 7%;" title="작은커피집">S</div>
+                        <div class="map-pin bg-cafe-new" style="top: 83%; left: 10%;" title="고고스커피">G</div>
+                        <div class="map-pin bg-cafe-new" style="top: 66%; left: 49%;" title="기린카페">K</div>
+                        <div class="map-pin bg-cafe-new" style="top: 43%; left: 58%;" title="라이언카페">L</div>
+                        <div class="map-pin bg-cafe-new" style="top: 63%; left: 74%;" title="해양관카페">M</div>
+                        <div class="map-pin bg-cafe-new" style="top: 70%; left: 65%;" title="코뿔소카페">R</div>
+                        <div class="map-pin bg-cafe-new" style="top: 66%; left: 8%;" title="원더카페">W</div>
+                        
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
 
@@ -298,10 +300,10 @@
                     
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_01.jpg" alt="원더카페">
+                            <img src="assets/images/facilities/cafe_01.jpg" alt="빵명장">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">원더카페</h4>
+                            <h4 class="item-title">빵명장</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료, 빵, 디저트 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">010-5360-8104</span></li>
@@ -311,10 +313,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_02.jpg" alt="기린카페">
+                            <img src="assets/images/facilities/cafe_02.jpg" alt="카페베네">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">기린카페</h4>
+                            <h4 class="item-title">카페베네</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">010-8997-4219</span></li>
@@ -324,10 +326,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_03.jpg" alt="라이언카페">
+                            <img src="assets/images/facilities/cafe_03.jpg" alt="작은커피집">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">라이언카페</h4>
+                            <h4 class="item-title">작은커피집</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">02-507-4598</span></li>
@@ -337,10 +339,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_04.jpg" alt="해양관카페">
+                            <img src="assets/images/facilities/cafe_04.jpg" alt="고고스커피">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">해양관카페</h4>
+                            <h4 class="item-title">고고스커피</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">02-6013-2907</span></li>
@@ -350,10 +352,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_05.jpg" alt="코뿔소카페">
+                            <img src="assets/images/facilities/cafe_05.jpg" alt="기린카페">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">코뿔소카페</h4>
+                            <h4 class="item-title">기린카페</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">02-6013-2906</span></li>
@@ -363,10 +365,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_06.jpg" alt="빵명장">
+                            <img src="assets/images/facilities/cafe_06.jpg" alt="라이언카페">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">빵명장</h4>
+                            <h4 class="item-title">라이언카페</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료, 빵, 디저트 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">070-8771-7712</span></li>
@@ -376,10 +378,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_07.jpg" alt="카페베네">
+                            <img src="assets/images/facilities/cafe_07.jpg" alt="해양관카페">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">카페베네</h4>
+                            <h4 class="item-title">해양관카페</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 디저트 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">02-509-6450</span></li>
@@ -389,10 +391,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_08.jpg" alt="작은커피집">
+                            <img src="assets/images/facilities/cafe_08.jpg" alt="코뿔소카페">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">작은커피집</h4>
+                            <h4 class="item-title">코뿔소카페</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 음료 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">02-503-3092</span></li>
@@ -402,10 +404,10 @@
 
                     <div class="facility-item">
                         <div class="item-thumb">
-                            <img src="assets/images/facilities/cafe_09.jpg" alt="고고스커피">
+                            <img src="assets/images/facilities/cafe_09.jpg" alt="원더카페">
                         </div>
                         <div class="item-info">
-                            <h4 class="item-title">고고스커피</h4>
+                            <h4 class="item-title">원더카페</h4>
                             <ul class="item-desc-list">
                                 <li><span class="i-label">판매품목</span> <span class="i-value">커피, 디저트 등</span></li>
                                 <li><span class="i-label">문의전화</span> <span class="i-value">02-567-3555</span></li>
@@ -421,12 +423,12 @@
                 
                 <div class="card-top-map">
                     <div class="map-container">
-                        <img src="assets/images/facilities/map_restaurant.jpg" alt="음식점 위치 지도">
-                        
-                        <div class="map-pin" style="background-color: #ff5722; top: 25%; left: 25%;" title="기린 푸드코트">K</div>
-                        <div class="map-pin" style="background-color: #ff5722; top: 35%; left: 35%;" title="큰맘할매순대국">B</div>
-                        <div class="map-pin" style="background-color: #ff5722; top: 55%; left: 60%;" title="코뿔소 푸드하우스">R</div>
-                        <div class="map-pin" style="background-color: #ff5722; top: 45%; left: 75%;" title="호랑이 푸드코트">T</div>
+                        <img src="assets/images/facilities/map_common.jpg" alt="음식점 위치 지도">
+
+                        <div class="map-pin bg-restaurant-orange " style="top: 65%; left: 49%;" title="기린 푸드코트">기</div>
+                        <div class="map-pin bg-restaurant-orange" style="top: 73%; left: 6%;" title="큰맘할매순대국">큰</div>
+                        <div class="map-pin bg-restaurant-orange " style="top: 67%; left: 65%;" title="코뿔소 푸드하우스">코</div>
+                        <div class="map-pin bg-restaurant-orange " style="top: 43%; left: 77%;" title="호랑이 푸드코트">호</div>
                     </div>
                 </div>
 

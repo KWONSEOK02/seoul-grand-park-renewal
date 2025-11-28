@@ -66,8 +66,10 @@ const initSearchLogic = () => {
     // 2-1. 검색창 동작 (헤더 및 검색 페이지 내부 검색창 모두 대응)
     const searchInputs = document.querySelectorAll('input[type="text"]');
     
-
     searchInputs.forEach(input => {
+        // 동물 검색창이면 통합검색 로직 패스
+        if (input.id === 'animal-search-input') return;
+
         // 엔터키 이벤트
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -81,7 +83,7 @@ const initSearchLogic = () => {
             }
         });
         
-        // 버튼 클릭 이벤트 (형제 요소 중 button 찾기)
+        // 버튼 클릭 이벤트
         const btn = input.parentElement.querySelector('button');
         if (btn) {
             btn.addEventListener('click', () => {
@@ -98,19 +100,15 @@ const initSearchLogic = () => {
     // 2-2. 검색 결과 페이지 로직 (search.html 에서만 동작)
     const resultContainer = document.querySelector('.animals-result-list');
     if (resultContainer) {
-        
-        // URL에서 검색어 가져오기 (?q=호랑이)
         const params = new URLSearchParams(window.location.search);
         const query = params.get('q');
         
-        // 검색창에 검색어 유지시키기
         const totalSearchInput = document.getElementById('total-search-input');
         if(totalSearchInput && query) totalSearchInput.value = query;
 
         const resultCount = document.querySelector('.result-count');
 
         if (query) {
-            // 데이터 불러오기 및 필터링
             fetch('assets/data/animals.json')
                 .then(res => res.json())
                 .then(data => {
@@ -118,13 +116,10 @@ const initSearchLogic = () => {
                         animal.name.includes(query) || animal.category.includes(query)
                     );
 
-                    // 결과 개수 업데이트
                     if(resultCount) resultCount.textContent = results.length;
 
-                    // ★ HTML 렌더링 (타겟 디자인에 맞춰 구조 변경)
                     if (results.length > 0) {
                         resultContainer.innerHTML = results.map(animal => {
-                            // 검색어 하이라이트 처리 (이름, 설명)
                             const highlight = (text) => {
                                 if(!text) return "";
                                 const regex = new RegExp(query, 'gi');
@@ -133,32 +128,59 @@ const initSearchLogic = () => {
 
                             return `
                             <div class="search-result-item">
-                                <div class="res-path">
-                                    ${animal.category} ↗
-                                </div>
-                                
-                                <a href="#" class="res-title">
-                                    ${highlight(animal.name)}
-                                </a>
-                                
-                                <p class="res-desc">
-                                    ${highlight(animal.description)}
-                                </p>
-                                
-                                <ul class="res-meta">
-                                    <li>등록일 &nbsp; ${animal.date}</li>
-                                </ul>
+                                <p class="result-link">${animal.category} ↗</p> <a href="#" class="result-title">${highlight(animal.name)}</a>
+                                <p class="result-desc">${highlight(animal.description)}</p>
+                                <ul class="result-meta"><li>등록일 &nbsp; ${animal.date}</li></ul>
                             </div>
                             `;
                         }).join('');
                     } else {
-                        // 결과 없음
                         resultContainer.innerHTML = `<div style="text-align:center; padding: 80px 0; color:#666;">검색 결과가 없습니다.</div>`;
                     }
                 })
                 .catch(err => console.error('데이터 로드 실패:', err));
         }
     }
+}; // ★ 여기서 initSearchLogic 함수 끝내기 (중요!)
+
+
+// =========================================================
+// [추가] 동물 보유현황 페이지 전용 검색 (필터링) - 별도 함수로 분리
+// =========================================================
+const initAnimalSearch = () => {
+    const input = document.getElementById('animal-search-input');
+    const btn = document.getElementById('btn-animal-search');
+    const cards = document.querySelectorAll('.animal-card');
+
+    if (!input || !btn) return; // 동물 페이지가 아니면 실행 안 함
+
+    // 필터링 실행 함수
+    const performFilter = () => {
+        const keyword = input.value.trim().toLowerCase();
+        
+        cards.forEach(card => {
+            const name = card.querySelector('.ani-name').textContent.toLowerCase();
+            // 키워드가 이름에 포함되어 있으면 보이고, 아니면 숨김
+            if (name.includes(keyword)) {
+                card.style.display = 'block'; 
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    };
+
+    // 엔터키 이벤트
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            performFilter();
+        }
+    });
+
+    // 버튼 클릭 이벤트
+    btn.addEventListener('click', () => {
+        performFilter();
+    });
 };
 
 
@@ -175,12 +197,16 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(res => res.text())
             .then(html => {
                 headerContainer.innerHTML = html;
-                initGnbDropdown(); // 헤더 로드 후 GNB 실행
-                initSearchLogic(); // 헤더 로드 후 검색바 이벤트 연결 (헤더에 검색창이 있을 수 있으므로)
+                initGnbDropdown(); 
+                initSearchLogic(); 
+                
+                // ★ 여기서 initAnimalSearch 호출 (함수가 분리되어 이제 인식됨)
+                initAnimalSearch(); 
             });
     } else {
         initGnbDropdown();
         initSearchLogic();
+        initAnimalSearch();
     }
 
     // Footer Load
@@ -191,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(html => footerContainer.innerHTML = html);
     }
     
-    // Guide Subnav Load (메인페이지가 아닌 곳에서만)
+    // Guide Subnav Load
     const guideSubnav = document.getElementById('guide-subnav');
     if (guideSubnav) {
         fetch('components/guide-subnav.html')
@@ -199,26 +225,22 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(html => guideSubnav.innerHTML = html);
     }
 
-    // 기타 JS (투어 코스 탭 등)
-    initTourTabs(); // ★ 투어 탭 로직 실행 추가
+    initTourTabs(); 
 });
 
 // =========================================================
 // 4. 편의시설 탭 전환 함수
 // =========================================================
 function openTab(tabName) {
-    // 1. 모든 탭 버튼 비활성화
     const tabButtons = document.querySelectorAll('.facility-tab-item');
     tabButtons.forEach(btn => btn.classList.remove('is-active'));
-    // 2. 클릭된 버튼 활성화 (event.currentTarget 사용)
-    // (HTML에서 onclick으로 호출할 때 this를 넘기지 않았으므로, 
-    // 여기서 클릭된 요소를 찾거나 간단히 event 객체 활용)
+    
     const clickedBtn = event.currentTarget;
     clickedBtn.classList.add('is-active');
-    // 3. 모든 탭 내용 숨김
+    
     const tabPanes = document.querySelectorAll('.tab-pane');
     tabPanes.forEach(pane => pane.classList.remove('is-active'));
-    // 4. 선택된 탭 내용 보이기
+    
     const activePane = document.getElementById(tabName);
     if (activePane) {
         activePane.classList.add('is-active');
@@ -226,18 +248,15 @@ function openTab(tabName) {
 }
 
 // =========================================================
-// 5. 투어 코스 탭 전환 로직 (텍스트 + 시간 + 지도이미지 변경)
+// 5. 투어 코스 탭 전환 로직
 // =========================================================
 const initTourTabs = () => {
     const tourItems = document.querySelectorAll('.tour-course-item');
-    
-    // 변경할 DOM 요소들
     const cardTitle = document.querySelector('#tour-info-card .info-title');
     const cardDesc = document.querySelector('#tour-info-card .info-desc');
     const cardTime = document.querySelector('#tour-info-card .info-time span');
     const mapImage = document.querySelector('.tour-map-area .map-image');
-    // 코스별 데이터 (제목, 시간, 설명, 이미지경로)
-    // ★ imgUrl 부분의 파일명을 실제 파일명으로 꼭 맞춰주세요!
+    
     const tourData = [
         {
             title: "01. 동물원 인기관람",
@@ -276,20 +295,19 @@ const initTourTabs = () => {
             imgUrl: "assets/images/main/course_06.jpg"
         }
     ];
+
     if (!tourItems || !cardTitle || !cardDesc || !mapImage) return;
+
     tourItems.forEach((item, index) => {
         item.addEventListener('click', () => {
-            // 1. 활성화 스타일 변경
             tourItems.forEach(el => el.classList.remove('is-active'));
             item.classList.add('is-active');
-            // 2. 데이터 가져와서 화면 업데이트
+            
             const data = tourData[index];
             if (data) {
                 cardTitle.textContent = data.title;
                 cardDesc.innerHTML = data.desc;
                 if(cardTime) cardTime.textContent = data.time;
-                
-                // 지도 이미지 변경
                 mapImage.src = data.imgUrl;
                 mapImage.alt = data.title + " 지도";
             }

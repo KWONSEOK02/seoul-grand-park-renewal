@@ -2,66 +2,237 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>Seoul Grand Park UX Renewal</title>
+  <title>Seoul Grand Park UX Renewal – 동물 보유현황</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- 공통 스타일 -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="page-animals">
   <div class="wrapper">
 
-    <!-- ================= 공통 HEADER ================= -->
-    <!-- (지금은 직접 써둔 헤더를 사용 중) -->
-    <header class="site-header">
-      <div class="header-top">
-        <div class="header-logo">
-          <a href="index.html">
-            <!-- 로고 텍스트 or 이미지 -->
-            <span class="logo-text">서울대공원 UX 리뉴얼</span>
-          </a>
+    <div id="site-header"></div>
+
+    <main id="main" class="site-main">
+
+      <section class="sub-visual-banner">
+        <div class="bg-img">
+            <img src="assets/images/animals/visual_otter.png" alt="동물원 배경" />
         </div>
 
-        <div class="header-info">
-          <!-- 간단 Today / 운영시간 안내 (데모 텍스트) -->
-          <span class="header-tag">Today</span>
-          <span class="header-text">운영시간 09:00 ~ 18:00 · 연중무휴 (예시)</span>
+        <div class="container visual-top-bar">
+            
+            <div class="breadcrumb-pill">
+                <a href="index.html" class="home-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <ul class="crumb-list">
+                    <li><a href="#">동물원</a></li>
+                    <li><a href="#">동물원 둘러보기</a></li>
+                    <li class="current">동물 보유현황</li>
+                </ul>
+            </div>
+
+            <div class="visual-utils">
+                <button type="button" class="btn-circle-white" title="공유하기">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                </button>
+                <button type="button" class="btn-circle-white" title="인쇄하기" onclick="window.print()">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                </button>
+            </div>
         </div>
+
+        <div class="visual-text-wrap">
+            <h2 class="sub-title">동물 보유현황</h2>
+            <p class="sub-desc">서울대공원의 동물가족을 소개합니다.</p>
+        </div>
+      </section>
+
+      <div class="container section-animal-content">
+        
+        <div class="animal-page-header">
+            <h3 class="pg-tit">동물원의 동물보유 현황을<br>알려드립니다</h3>
+            <p class="pg-desc">
+                포유류, 조류등의 다양한 동물보유 현황과<br>
+                멸종위기관리동물들의 관리를 위한 동물보유현황에 대하여 알려드립니다
+            </p>
+        </div>
+
+        <div class="animal-stats-box">
+            <h4 class="stats-label">동물원 동물 보유 현황</h4>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="icon-area icon-mammal"></div>
+                    <span class="lbl">포유류</span>
+                    <strong class="count text-green">110</strong>
+                </div>
+                <div class="stat-item">
+                    <div class="icon-area icon-bird"></div>
+                    <span class="lbl">조류</span>
+                    <strong class="count text-green">62</strong>
+                </div>
+                <div class="stat-item">
+                    <div class="icon-area icon-reptile"></div>
+                    <span class="lbl">파충류</span>
+                    <strong class="count text-green">26</strong>
+                </div>
+                <div class="stat-item">
+                    <div class="icon-area icon-amphibian"></div>
+                    <span class="lbl">양서류</span>
+                    <strong class="count text-green">9</strong>
+                </div>
+            </div>
+
+            <hr class="stats-divider">
+
+            <h4 class="stats-label">멸종위기관리 동물 보유 현황</h4>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="icon-area icon-monument"></div>
+                    <span class="lbl">천연기념물</span>
+                    <strong class="count text-dark">15</strong>
+                </div>
+                <div class="stat-item">
+                    <div class="icon-area icon-cites"></div>
+                    <span class="lbl">CITES</span>
+                    <strong class="count text-dark">112</strong>
+                </div>
+                <div class="stat-item">
+                    <div class="icon-area icon-danger"></div>
+                    <span class="lbl">국내멸종</span>
+                    <strong class="count text-dark">27</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="animal-search-toolbar">
+            <div class="select-group">
+                <select class="ani-select">
+                    <option>학문적분류</option>
+                    <option>포유류</option>
+                    <option>조류</option>
+                </select>
+                <select class="ani-select">
+                    <option>동물서식지</option>
+                    <option>제1아프리카관</option>
+                    <option>제2아프리카관</option>
+                </select>
+            </div>
+            <div class="search-input-group">
+              <input type="text" id="animal-search-input" placeholder="검색하고자 하는 키워드를 입력하세요" title="검색어 입력">
+              <button type="button" id="btn-animal-search" class="btn-ani-search">Q</button>
+            </div>
+        </div>
+
+        <div class="animal-card-grid">
+            
+            <div class="animal-card">
+                <div class="card-photo">
+                    <span class="num-badge blue">1</span>
+                    <img src="assets/images/animals/animal_01.jpg" alt="시베리아호랑이">
+                </div>
+                <div class="card-info">
+                    <h4 class="ani-name">시베리아호랑이</h4>
+                    <ul class="ani-meta">
+                        <li><span class="label">목분류</span> <span class="val">식육목</span></li>
+                        <li><span class="label">과분류</span> <span class="val">고양이과</span></li>
+                        <li><span class="label">공원내위치</span> <span class="val">맹수사</span></li>
+                    </ul>
+                    <a href="tiger-details.html" class="btn-detail">자세히보기 ></a>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="card-photo">
+                    <span class="num-badge red">2</span>
+                    <img src="assets/images/animals/animal_02.jpg" alt="팬케이크육지거북">
+                </div>
+                <div class="card-info">
+                    <h4 class="ani-name">팬케이크육지거북</h4>
+                    <ul class="ani-meta">
+                        <li><span class="label">목분류</span> <span class="val">거북목</span></li>
+                        <li><span class="label">과분류</span> <span class="val">땅거북과</span></li>
+                        <li><span class="label">공원내위치</span> <span class="val">동양관</span></li>
+                    </ul>
+                    <a href="#" class="btn-detail">자세히보기 ></a>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="card-photo">
+                    <span class="num-badge green">3</span>
+                    <img src="assets/images/animals/animal_03.jpg" alt="아메리카테이퍼">
+                </div>
+                <div class="card-info">
+                    <h4 class="ani-name">아메리카테이퍼</h4>
+                    <ul class="ani-meta">
+                        <li><span class="label">목분류</span> <span class="val">기제목</span></li>
+                        <li><span class="label">과분류</span> <span class="val">테이퍼과</span></li>
+                        <li><span class="label">공원내위치</span> <span class="val">남미관</span></li>
+                    </ul>
+                    <a href="#" class="btn-detail">자세히보기 ></a>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="card-photo">
+                    <span class="num-badge teal">4</span>
+                    <img src="assets/images/animals/animal_04.jpg" alt="솔방울도마뱀">
+                </div>
+                <div class="card-info">
+                    <h4 class="ani-name">솔방울도마뱀</h4>
+                    <ul class="ani-meta">
+                        <li><span class="label">목분류</span> <span class="val">뱀목</span></li>
+                        <li><span class="label">과분류</span> <span class="val">도마뱀과</span></li>
+                        <li><span class="label">공원내위치</span> <span class="val">동양관</span></li>
+                    </ul>
+                    <a href="#" class="btn-detail">자세히보기 ></a>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <div class="card-photo">
+                    <span class="num-badge blue">5</span>
+                    <img src="assets/images/animals/animal_05.jpg" alt="레서판다">
+                </div>
+                <div class="card-info">
+                    <h4 class="ani-name">레서판다</h4>
+                    <ul class="ani-meta">
+                        <li><span class="label">목분류</span> <span class="val">식육목</span></li>
+                        <li><span class="label">과분류</span> <span class="val">레서판다과</span></li>
+                        <li><span class="label">공원내위치</span> <span class="val">레서판다사</span></li>
+                    </ul>
+                    <a href="#" class="btn-detail">자세히보기 ></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pagination-wrap">
+            <span class="pg-nums">
+                <a href="#" class="on">1</a>
+            </span>
+        </div>
+
       </div>
 
-      <nav class="global-nav">
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">메인</a>
-          </li>
-          <li class="nav-item">
-            <a href="animals.html" class="nav-link">동물 검색</a>
-          </li>
-          <li class="nav-item">
-            <a href="facilities.html" class="nav-link">편의시설·유모차</a>
-          </li>
-          <li class="nav-item">
-            <a href="courses.html" class="nav-link">추천 코스</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!-- =============== /HEADER =============== -->
-
-    <!-- ================= 페이지별 MAIN ================= -->
-    <main id="main" class="site-main">
-      <!-- 각 html 파일마다 이 안의 내용만 바꿔 넣으면 됨 -->
-      <!-- 예: index.html은 프로젝트 소개, animals.html은 동물 검색 UI -->
     </main>
-    <!-- =============== /MAIN =============== -->
 
-    <!-- ================= 공통 FOOTER ================= -->
-    <!-- 기존 footer 태그 통째로 제거하고, include용 컨테이너만 둠 -->
     <div id="site-footer"></div>
-    <!-- =============== /FOOTER =============== -->
 
   </div>
 
-  <!-- 공통 스크립트 -->
   <script src="main.js"></script>
 </body>
 </html>
