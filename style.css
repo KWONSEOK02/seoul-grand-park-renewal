@@ -1965,8 +1965,8 @@ main {
 }
 
 .dt-en-name, .dt-sc-name {
-  font-size: 16px;
-  color: #555;
+  font-size: 18px;
+  color: #333;
   margin-bottom: 4px;
   font-family: 'Times New Roman', serif; /* 학명 느낌 */
   font-style: italic;
@@ -1995,7 +1995,7 @@ main {
 
 /* 스펙 그리드 (회색 박스) */
 .detail-spec-grid {
-  background-color: #f8f9fa;
+  background-color: #f8f9fa84;
   padding: 40px;
   border-radius: 12px;
   display: grid;
@@ -2009,15 +2009,15 @@ main {
 }
 
 .spec-label {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 800;
   color: #222;
   margin-bottom: 10px;
 }
 
 .spec-val {
-  font-size: 15px;
-  color: #555;
+  font-size: 17px;
+  color: #444;
   line-height: 1.5;
   word-break: keep-all;
 }
