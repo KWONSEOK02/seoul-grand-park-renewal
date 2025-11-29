@@ -145,6 +145,9 @@ main {
     justify-content: space-between;
     gap: 40px;
     padding-right: 0;
+    /*수정: 컨테이너 너비를 꽉 채워서 양쪽 끝으로 벌림 */
+    max-width: 100%; /* 또는 1400px 이상 */
+    padding: 0 40px; /* 좌우 여백 */
   }
   
   /* [Logo] 로고 영역 */
